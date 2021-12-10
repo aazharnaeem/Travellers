@@ -2,6 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const connection = require('./config')
+const { user } = require('./routes')
+
+
 
 dotenv.config();
 
@@ -15,6 +18,8 @@ App.get('/', (req, res) => {
     res.send('Welcome to API MAIN')
 });
 
+
+App.use('/user', user)
 
 const PORT = process.env.PORT || 8000;
 
